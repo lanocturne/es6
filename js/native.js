@@ -48,7 +48,7 @@ function closure() {
   }
 
   function createLog(i) {
-    return function() {
+    return function(e) {
       console.log('clicked', i);
     }
   }
@@ -68,3 +68,9 @@ console.log(reformatObjs([{
   key: 'b',
   value: 2
 }]));
+
+//reverse words in a function
+function reverseWords(words) {
+  return words.split(' ').reverse().join(' ');
+}
+console.log(reverseWords('words should be reversed'));

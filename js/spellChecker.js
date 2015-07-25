@@ -70,11 +70,27 @@ class State {
 
 	isMember(word) {
 		var currentState = this.initialState;
-		for (let w of word) {
-			currentState = currentState.children.get(w);
+		for (let c of word) {
+			currentState = currentState.children.get(c);
 			if (!currentState) return false;
 		}
 		return currentState.isAcceptingState;
+	}
+
+	/**
+	 * check a string has all valid words;
+	 */
+	isValid(string) {
+		var words = string.match(/\w+/g);
+		if (!words) {
+			return false;
+		}
+		for (let w of words) {
+			if (!this.isMember(w)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
 
@@ -83,3 +99,5 @@ sc.setup(['foo', 'bar', 'baz', null]);
 console.log(sc.isMember('f.o')); //true
 console.log(sc.isMember('..')); //false
 console.log(sc.isMember('kanye')); //false
+
+console.log(sc.isValid('foo,bo. baz')); //false
