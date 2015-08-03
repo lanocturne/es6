@@ -73,4 +73,7 @@ console.log(reformatObjs([{
 function reverseWords(words) {
   return words.split(' ').reverse().join(' ');
 }
-console.log(reverseWords('words should be reversed'));
+let x = 0;
+if (!!x) {
+  console.log(reverseWords('words should be reversed'));
+}
